@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Memória - Frutas</title>
+    <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <span class="subtitulo">DIVIRTA-SE E TREINE SUA MEMÓRIA</span>
+
+            <h1>🍓 Jogo da Memória 🍍</h1>
+
+            <p>Encontre os pares de frutas iguais!</p>
+        </header>
+        <!-- Painel de informações -->
+        <section class="painel">
+
+            <div class="informacao">
+                <span>Jogadas</span>
+                <strong id="jogadas">0</strong>
+            </div>
+
+            <div class="informacao">
+                <span>Tempo</span>
+                <strong id="tempo">00:00</strong>
+            </div>
+
+            <div class="informacao">
+                <span>Pares encontrados</span>
+                <strong id="pares">0 / 6</strong>
+            </div>
+
+        </section>
+        <!-- Tabuleiro -->
+        <section class="tabuleiro" id="tabuleiro">
+
+        </section>
+
+        <!-- Mensagem final -->
+        <section class="mensagem-final" id="mensagemFinal">
+
+            <div class="trofeu">🏆</div>
+
+            <h2>Parabéns! Você conseguiu!</h2>
+
+            <p>Você encontrou todos os pares de frutas!</p>
+
+            <div class="resultado">
+                <p>Jogadas: <strong id="resultadoJogadas">0</strong></p>
+                <p>Tempo: <strong id="resultadoTempo">00:00</strong></p>
+            </div>
+
+            <button onclick="reiniciarJogo()">
+                Jogar novamente
+            </button>
+
+        </section>
+
+        <button class="botao-reiniciar" onclick="reiniciarJogo()">
+            ↻ Reiniciar jogo
+        </button>
+
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>

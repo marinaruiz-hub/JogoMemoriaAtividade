@@ -1,0 +1,261 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #fff3e8, #fce4ec);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    color: #493b3b;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+.subtitulo {
+    color: #d77c78;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+header h1 {
+    font-size: 34px;
+    margin: 12px 0;
+    color: #a64d55;
+}
+
+header p {
+    color: #927c7c;
+    font-size: 15px;
+}
+
+.painel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.informacao {
+    background-color: white;
+    padding: 15px 8px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px #0000000d;
+}
+
+.informacao span {
+    display: block;
+    color: #9b8585;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.informacao strong {
+    color: #c66c72;
+    font-size: 22px;
+}
+
+.tabuleiro {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    perspective: 1000px;
+}
+
+.carta {
+    height: 130px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.carta.virada {
+    transform: rotateY(180deg);
+}
+
+.carta.encontrada {
+    cursor: default;
+}
+
+.frente,
+.verso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    box-shadow: 0 5px 12px #00000012;
+}
+
+.frente {
+    background: linear-gradient(145deg, #e99a9d, #cf707b);
+    color: white;
+    font-size: 38px;
+    border: 3px solid white;
+    transition: background 0.3s;
+}
+
+.carta:not(.encontrada):hover .frente {
+    background: #c85e70;
+}
+
+.verso {
+    background-color: white;
+    transform: rotateY(180deg);
+    font-size: 55px;
+    border: 3px solid #f0c4c7;
+}
+
+.carta.encontrada .verso {
+    background-color: #e5f6e9;
+    border-color: #8bc99a;
+    animation: acerto 0.4s;
+}
+
+@keyframes acerto {
+    50% {
+        transform: rotateY(180deg) scale(1.08);
+    }
+}
+
+/* Botão reiniciar */
+
+.botao-reiniciar {
+    margin-top: 30px;
+    background-color: #c96d78;
+    color: white;
+    border: none;
+    padding: 13px 30px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao-reiniciar:hover {
+    background-color: #a94f5c;
+    transform: translateY(-3px);
+}
+
+/* Mensagem final */
+
+.mensagem-final {
+    display: none;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 0 5px 20px #00000012;
+}
+
+.mensagem-final.ativa {
+    display: block;
+}
+
+.trofeu {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.mensagem-final h2 {
+    color: #a64d55;
+    margin-bottom: 12px;
+}
+
+.mensagem-final p {
+    color: #927c7c;
+    margin: 8px 0;
+}
+
+.resultado {
+    background-color: #fff3e8;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.resultado strong {
+    color: #c66c72;
+}
+
+.mensagem-final button {
+    background-color: #c96d78;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.mensagem-final button:hover {
+    background-color: #a94f5c;
+}
+
+/* Responsividade */
+
+@media (max-width: 500px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .tabuleiro {
+        gap: 9px;
+    }
+
+    .carta {
+        height: 100px;
+    }
+
+    .frente {
+        font-size: 30px;
+    }
+
+    .verso {
+        font-size: 40px;
+    }
+
+    .informacao {
+        padding: 12px 5px;
+    }
+
+    .informacao span {
+        font-size: 10px;
+    }
+
+    .informacao strong {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .carta {
+        height: 80px;
+    }
+
+    .verso {
+        font-size: 32px;
+    }
+}
